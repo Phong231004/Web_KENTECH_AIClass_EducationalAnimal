@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Đội Ngũ Rừng Xanh</title>
+
+  <!-- Bootstrap + Google Fonts + Animate.css -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=K2D:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+
+  <style>
+   body {
+    font-family: 'K2D', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #fffde7, #e1f5fe, #b2ebf2);
+    color: #333;
+    }
+
+    .hero {
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.3)), /* lớp mờ */
+            url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1400&q=80') no-repeat center center/cover;
+        color: white;
+        padding: 100px 0;
+        text-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+        }
+
+    .hero h1 {
+      font-size: 3.5rem;
+    }
+    .flag {
+      width: 50px;
+      height: auto;
+    }
+    .flag-container {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      padding: 0 30px;
+    }
+    .card img {
+      height: 200px;
+      object-fit: cover;
+    }
+    .section-title {
+      font-weight: bold;
+      font-size: 2.5rem;
+      margin: 40px 0 20px;
+      text-align: center;
+    }
+    .card-title {
+      font-weight: bold;
+    }
+    footer {
+      background-color: #006064;
+      color: white;
+      padding: 20px 0;
+      text-align: center;
+      margin-top: 50px;
+    }
+    .hero h1 {
+    font-size: 2.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    background: linear-gradient(
+        -45deg,
+        #ffcc00,   /* vàng sao VN */
+        #ff0000,   /* đỏ VN */
+        #ffffff,   /* trắng HQ */
+        #0072ff,   /* xanh HQ */
+        #000000    /* đen HQ */
+    );
+    background-size: 400% 400%;
+    animation: gradientFlow 6s ease infinite, neonFlicker 5s infinite alternate;
+    text-shadow:
+        0 0 5px rgba(255, 255, 255, 0.3),
+        0 0 10px rgba(255, 255, 255, 0.2);
+    }
+
+    @keyframes gradientFlow {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+    }
+
+    @keyframes neonFlicker {
+    0% {
+        text-shadow:
+        0 0 5px #ffffff,
+        0 0 10px #ff0000,
+        0 0 20px #ffcc00;
+    }
+    100% {
+        text-shadow:
+        0 0 10px #ffffff,
+        0 0 20px #0072ff,
+        0 0 30px #ffcc00;
+    }
+    }
+    .theory-section img {
+    max-width: 800px;
+    margin: auto;
+    transition: transform 0.3s;
+    }
+
+    .theory-section img:hover {
+    transform: scale(1.03);
+    }
+    .container img {
+  display: block;
+  margin: 0 auto;
+  max-width: 75%;
+  height: auto;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  animation: fadeInUp 1s ease-in-out;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.container img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 20px 35px rgba(0,0,0,0.2);
+}
+
+/* Căn giữa ghi chú */
+.container p.small.text-muted {
+  text-align: center;
+  font-style: italic;
+  margin-top: 8px;
+}
+
+/* Animation đơn giản */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="hero text-center">
+    <div class="flag-container">
+      <img style="width: 100px;" src="https://upload.wikimedia.org/wikipedia/commons/2/21/Flag_of_Vietnam.svg" class="flag" alt="VN">
+      <img style="width: 100px;" src="https://upload.wikimedia.org/wikipedia/commons/0/09/Flag_of_South_Korea.svg" class="flag" alt="KR">
+    </div>
+    <div class="container animate__animated animate__fadeInDown">
+        <h2>Welcome to team 06</h2>
+      <h1 class="animate__animated animate__bounceIn">
+        IDENTIFYING:<br>“WILD CAT SPECIES” from MOBILENET V2
+        </h1>
+      <p class="lead animate__animated animate__fadeInUp animate__delay-1s">"When artificial intelligence touches nature, knowledge suddenly listens to human emotions"</p>
+    </div>
+  </section>
+  <!-- Human Members -->
+<section class="container py-5 position-relative" style="z-index: 1; margin-top: 10px;">
+  <!-- Ảnh nền bản đồ Việt Nam ẩn sau -->
+  <div style="
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://meliawedding.com.vn/wp-content/uploads/2022/11/screen-shot-2017-11-04-at-101608-pm-1509808836513-1509903624734.png');
+    background-size: cover, 200px, 300px;
+    background-position: center, top right, bottom left;
+    background-repeat: no-repeat;
+    opacity: 0.4;
+    z-index: 0;
+  "></div>
+
+  <!-- Nội dung chính -->
+  <h2 class="section-title position-relative text-center mx-auto" 
+    style="
+      background-color: #fff7f2;
+      z-index: 2;
+      margin-top: -30px;
+      padding: 12px 24px;
+      display: inline-block;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      font-weight: 700;
+      font-size: 2rem;
+      color: red;
+    ">
+  Team Numbers
+</h2>
+
+  <div class="row g-4 position-relative" style="z-index: 1; margin-top: -30px; ">
+    <div class="col-md-3">
+      <div class="card shadow animate__animated animate__zoomIn">
+        <img src="./Phong.png" class="card-img-top" alt="Thành viên 1">
+        <div class="card-body">
+          <h5 class="card-title">Phong Huynh_Thanh</h5>
+          <p class="card-text">Tiger – The Fearless Charger</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow animate__animated animate__zoomIn animate__delay-1s">
+        <img src="./Nhat.png" class="card-img-top" alt="Thành viên 2">
+        <div class="card-body">
+          <h5 class="card-title" >Nhat Nguyen_Minh</h5>
+          <p class="card-text">Lion – The Royal Leader</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow animate__animated animate__zoomIn animate__delay-2s">
+        <img src="./Duy.png" class="card-img-top" alt="Thành viên 3">
+        <div class="card-body">
+          <h5 class="card-title" >Duy Huynh_Khanh</h5>
+          <p class="card-text"> Leopard – The Stealth Thinker</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <div class="card shadow animate__animated animate__zoomIn animate__delay-3s">
+        <img src="./Bao.png" class="card-img-top" alt="Thành viên 4">
+        <div class="card-body">
+          <h5 class="card-title" >Bao Tran_Quoc</h5>
+          <p class="card-text"> Cheetah – The Speed Master</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="container py-5">
+  <h2 class="section-title text-success text-center mb-4">MobileNetV2 Theoretical Basis</h2>
+
+  <!-- Ảnh 1: Tổng quan -->
+  <div class="row align-items-center mb-5">
+  <div class="col-md-6 text-center">
+    <img 
+      src="https://d3i71xaburhd42.cloudfront.net/435900e97406a90f20e35510829d3ca2ed138353/2-Figure1-1.png" 
+      style="width: 100%; max-width: 500px; height: auto;" 
+      class="rounded shadow" 
+      alt="MobileNetV2 Architecture">
+  </div>
+  <div class="col-md-6">
+    <h5 class="text-dark fw-bold mb-3 text-center">MobileNetV2 Architecture Overview</h5>
+    <p class="small text-muted" >MobileNetV2 is a highly efficient convolutional neural network tailored for mobile and edge devices. It improves upon its predecessor by introducing Inverted Residual Blocks with Linear Bottlenecks, enabling faster and lighter computation. Each block consists of a 1×1 expansion layer (with ReLU6), a 3×3 depthwise convolution, and a 1×1 projection layer (without activation).
+Residual connections are used when input and output dimensions match, allowing better gradient flow and feature reuse. The architecture begins with a standard convolution layer, followed by a series of these bottleneck blocks with increasing depth. After feature extraction, it ends with a 1×1 convolution, global average pooling, and a fully connected layer for classification.
+MobileNetV2 balances accuracy, speed, and efficiency, making it ideal for real-time applications like object detection, face recognition, and mobile vision tasks.</p>
+  </div>
+</div>
+
+
+  <!-- Ảnh 2: Inverted Residual Block -->
+  <div class="row align-items-center mb-5 flex-md-row-reverse">
+    <div class="col-md-6 text-center">
+      <img  src="https://tse2.mm.bing.net/th/id/OIP.YzN6QNoV_HcNkqis-J6vQwHaE3?pid=Api&P=0&h=220" 
+           style="width: 100%; max-width: 500px; height: auto;" 
+      class="img-fluid rounded shadow" alt="Inverted Residual Block" >
+    </div>
+    <div class="col-md-6">
+      <h5 class="text-dark fw-bold mb-3 text-center">Inverted Residual Block</h5>
+      <p class="small text-muted">The Inverted Residual Block is the core component of MobileNetV2, designed to maximize efficiency and accuracy, especially for mobile and embedded vision applications. Unlike traditional residual blocks that compress and then expand features, the inverted residual block does the opposite — it expands first, then processes, and finally compresses. The block starts with a 1×1 convolution (expansion layer) that increases the number of channels by a factor (typically 6), followed by a 3×3 depthwise convolution that applies convolution independently to each channel, drastically reducing computation.
+After the depthwise convolution, a 1×1 linear projection layer reduces the number of channels back to a lower-dimensional space. Importantly, no activation function is used in the final projection layer — this "linear bottleneck" helps preserve feature expressiveness and prevents information loss. Additionally, a residual (shortcut) connection is added when the input and output have the same dimensions (i.e., stride = 1 and same channel size), which facilitates gradient flow and improves learning in deep networks.
+This inverted structure allows the model to maintain a lightweight architecture while still capturing rich feature representations. It also benefits from ReLU6 activation, which is more hardware-friendly and avoids vanishing gradients on mobile devices. Overall, the inverted residual block plays a critical role in achieving MobileNetV2’s goal of efficient, fast, and accurate deep learning, making it ideal for tasks like image classification, face recognition, and object detection on low-power devices.</p>
+    </div>
+  </div>
+
+  <!-- Ảnh 3: Depthwise Separable Convolution -->
+  <div class="row align-items-center mb-4">
+    <div class="col-md-6 text-center">
+      <img  src="https://mmlab.uit.edu.vn/assets/images/image9-2095b0af20e255495fd6d288430d32c4.png" 
+           style="width: 100%; max-width: 500px; height: auto;" 
+      class="img-fluid rounded shadow" alt="Depthwise Separable Convolution" >
+    </div>
+    <div class="col-md-6">
+      <h5 class="text-dark fw-bold mb-3 text-center">Depthwise Separable Convolution</h5>
+      <p class="small text-muted">
+        <strong>Depthwise Separable Convolution</strong> is an efficient convolution technique that significantly reduces the number of parameters and computations in convolutional neural networks. It splits the standard convolution into two steps: <em>depthwise</em> and <em>pointwise</em>. This reduces the computational cost from:
+        $$ D_K \times D_K \times M \times N \times D_F \times D_F $$
+        to:
+        $$ D_K \times D_K \times M \times D_F \times D_F + M \times N \times D_F \times D_F $$
+        where \( D_K \) is the kernel size, \( D_F \) is the spatial dimension, \( M \) is the number of input channels, and \( N \) is the number of output channels.
+    This decomposition not only reduces the number of parameters but also lowers memory usage and power consumption — key advantages for mobile and edge devices. Despite being lightweight, depthwise separable convolutions still retain strong representational capacity when combined properly. That’s why they are widely adopted in modern efficient architectures such as MobileNet, EfficientNet, and Lite models. Their balance between speed and accuracy makes them essential in real-time computer vision tasks.
+    </p>
+
+
+    </div>
+  </div>
+</section>
+
+  <!-- Animal Members -->
+  <section class="container py-5">
+    <h2 class="section-title text-success">Animal Friends</h2>
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="card shadow animate__animated animate__fadeInUp">
+          <img src="https://tse1.mm.bing.net/th/id/OIP.G8RC2Q_o0oYCQz3s_A_grgHaE8?pid=Api&P=0&h=220" class="card-img-top" alt="Tiger">
+          <div class="card-body">
+            <h5 class="card-title">Tiger</h5>
+            <p class="card-text">The tiger is the largest species of the cat family, known for its powerful build, striped fur, and solitary nature. It is a top predator found mainly in Asia's forests and grasslands.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card shadow animate__animated animate__fadeInUp animate__delay-1s">
+          <img src="https://tse4.mm.bing.net/th/id/OIP.ubwBIfs0I_XeI62cmaBONAHaE8?pid=Api&P=0&h=220" class="card-img-top" alt="Lion">
+          <div class="card-body">
+            <h5 class="card-title">Lion</h5>
+            <p class="card-text">The lion is a large, social big cat known for its majestic mane and powerful roar. Native to Africa and parts of Asia, it lives in groups called prides and is often called the "king of the jungle."</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card shadow animate__animated animate__fadeInUp animate__delay-2s">
+          <img src="https://tse3.mm.bing.net/th/id/OIP.C9xeJimBx9ygWCYv0It0-gHaE8?pid=Api&P=0&h=220" class="card-img-top" alt="Leopard">
+          <div class="card-body">
+            <h5 class="card-title">Leopard</h5>
+            <p class="card-text">The leopard is a sleek and agile big cat known for its spotted coat and exceptional climbing ability. Found across Africa and parts of Asia, it is a solitary and stealthy predator, often dragging its prey up trees to avoid scavengers.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card shadow animate__animated animate__fadeInUp animate__delay-3s">
+          <img src="https://tse4.mm.bing.net/th/id/OIP.Z6V59_EMFdf5jCTY3MEEVAHaE8?pid=Api&P=0&h=220" class="card-img-top" alt="Cheetah">
+          <div class="card-body">
+            <h5 class="card-title">Cheetah</h5>
+            <p class="card-text">The cheetah is the fastest land animal, capable of reaching speeds up to 100 km/h (62 mph) in short bursts. It has a slender body, black tear-like facial stripes, and is built for speed rather than strength, making it a skilled daytime hunter in African savannas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<section class="container py-5">
+  <h2 class="section-title text-success text-center mb-4">Identification Results</h2>
+  <div class="row justify-content-center g-4">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow animate__animated animate__fadeInLeft">
+        <img src="Picture_test_2.png" class="card-img-top" alt="Photo to be identified">
+        <div class="card-body">
+          <h5 class="card-title">Photo to be identified - 식별할 사진</h5>
+          <p class="card-text">
+            식별하고 싶은 동물의 이미지를 업로드하거나 캡처하세요.
+            AI 시스템이 사진을 분석하여 가장 가능성이 높은 종을 제안해 드립니다.
+            동물의 이름, 사실, 그리고 재미있는 정보를 즉시 확인해 보세요!<br>
+            Upload or capture an image of an animal you want to identify.
+            Our AI system will analyze the photo and suggest the most likely species.
+            Discover names, facts, and fun details about the animal instantly!
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow animate__animated animate__fadeInRight animate__delay-1s">
+        <img src="result_yolo_mobilenet.jpg" class="card-img-top" alt="Image of results after recognition">
+        <div class="card-body">
+          <h5 class="card-title">Image of results after recognition - 인식 후 결과 이미지</h5>
+          <p class="card-text">
+            처리된 이미지와 예측된 동물 라벨을 확인하세요.
+            강조 표시된 특징과 분류 신뢰도가 표시됩니다.
+            식별된 종에 대한 자세한 정보를 즉시 살펴보세요!<br>
+            See the processed image along with the predicted animal label.
+            Highlighted features and classification confidence will be displayed.
+            Explore detailed information about the identified species instantly!
+
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="container py-5">
+  <h2 class="section-title text-success text-center mb-4">Related Information</h2>
+
+  <div class="row align-items-center mb-5" style="border: 2px solid #e5ff00; padding: 10px; border-radius: 8px;">
+  <div class="col-md-6 text-center">
+    <img 
+      src="./picture1.png" 
+      style="width: 100%; max-width: 500px; height: auto;" 
+      class="rounded shadow" 
+      alt="picture1">
+  </div>
+  <div class="col-md-6">
+    <h5 class="text-dark fw-bold mb-3 text-center"></h5>
+    <p class="small text-muted" >
+        This bar chart presents the number of training images per animal label collected from Kaggle.
+        The dataset includes four categories: cheetah, leopard, lion, and tiger.
+        Among them, tiger has the highest number of images, with a total of 502 samples.
+        Lion comes second, with 389 images in the training set.
+        Cheetah ranks third, having 318 images.
+        Leopard has the lowest count, with only 175 images available for training.
+        This uneven distribution indicates a class imbalance in the dataset.
+        Class imbalance can negatively affect the model’s performance, especially on underrepresented classes.
+        The model may become biased toward classes with more training examples.
+        To address this, techniques like data augmentation, resampling, or class weighting could be applied.
+        The chart also helps visualize how data quantity varies across labels.
+        It shows that tiger and lion have nearly three times more samples than leopard.
+        Such visualizations are important in understanding the dataset before training.
+        Balancing the data improves the model’s ability to generalize and predict fairly.
+        In conclusion, this chart provides useful insight into the dataset’s structure and guides necessary preprocessing steps.
+    </p>
+  </div>
+</div>
+  <div class="row align-items-center mb-5" style="border: 2px solid #cf21c7; padding: 10px; border-radius: 8px;">
+  <div class="col-md-6 text-center">
+    <img 
+      src="./picture2.png" 
+      style="width: 100%; max-width: 500px; height: auto;" 
+      class="rounded shadow" 
+      alt="picture1">
+  </div>
+  <div class="col-md-6">
+    <h5 class="text-dark fw-bold mb-3 text-center"></h5>
+    <p class="small text-muted" >
+        This slide explains the process of augmenting the original image. The goal of augmentation is to increase the diversity of the training dataset. By modifying the brightness, the model can learn from both darker and brighter images. Adjusting saturation also helps the model generalize better by exposing it to a range of color intensities. The technique includes filtering black and white edges, which enhances contrast in images. These augmentations improve the robustness of the model. On the left side of the slide, there is an Accuracy chart across Epochs. It shows how training and validation accuracy improve over time. Both curves rise quickly in the first few epochs. Then, they stabilize after around 30 epochs. On the right side, the Loss chart shows the loss decreasing during training. The training loss reduces steadily, while the validation loss follows a similar trend. This suggests that the model is learning effectively. The highlighted box emphasizes that these are charts of Accuracy and Loss over Epochs. Overall, the augmentation methods and training process contribute to a more reliable model.
+    </p>
+  </div>
+</div>
+  <div class="row align-items-center mb-5" style="border: 2px solid #5fff02; padding: 10px; border-radius: 8px;">
+  <div class="col-md-6 text-center">
+    <img 
+      src="./picture3.png" 
+      style="width: 100%; max-width: 500px; height: auto;" 
+      class="rounded shadow" 
+      alt="picture1">
+  </div>
+  <div class="col-md-6">
+    <h5 class="text-dark fw-bold mb-3 text-center"></h5>
+    <p class="small text-muted" >
+        This slide demonstrates how to augment the original image using basic image processing techniques.
+        The original image used is a photo of a lion.
+        From this original image, four types of image transformations are applied.
+        These include converting the image to RGB, HSV, grayscale, and using the Sobel operator.
+        Each transformation provides different insights about the image content.
+        The RGB histogram shows the distribution of red, green, and blue channels.
+        In this histogram, the three color channels are plotted separately.
+        The HSV histogram illustrates the distribution of hue, saturation, and value components.
+        This color space is often used in object detection and color-based segmentation.
+        The grayscale conversion simplifies the image to a single intensity channel.
+        Its histogram displays the pixel intensity distribution across the grayscale image.
+        The Sobel filter highlights edges by computing the image gradient.
+        The gradient distribution shows how intensity changes across the image.
+        These transformations are basic but powerful tools for feature extraction.
+        They play an essential role in computer vision, particularly in image preprocessing steps.
+    </p>
+  </div>
+</div>
+  <div class="row align-items-center mb-5" style="border: 2px solid #fdd700; padding: 10px; border-radius: 8px;">
+  <div class="col-md-6 text-center">
+    <img 
+      src="./picture4.png" 
+      style="width: 100%; max-width: 500px; height: auto;" 
+      class="rounded shadow" 
+      alt="picture1">
+  </div>
+  <div class="col-md-6">
+    <h5 class="text-dark fw-bold mb-3 text-center"></h5>
+    <p class="small text-muted" >
+        This dataset includes 50 augmented images for each original.
+        Augmentation helps improve model generalization.
+        The images have been enhanced using various filters.
+        Bilateral filtering smooths the image while preserving edges.
+        Median filtering removes noise effectively.
+        Mean filtering blurs the image uniformly.
+        Cartoon effects create stylized image versions.
+        Each transformation introduces slight variations.
+        Image noise was added to simulate real-world imperfections.
+        The purpose is to increase training diversity.
+        Sharpening makes edges in the image more distinct.
+        Blurring reduces image details and textures.
+        These augmentations are applied randomly.
+        Data augmentation is essential in deep learning pipelines.
+        Visual diversity enhances recognition performance.
+    </p>
+  </div>
+</div>
+  <div class="row align-items-center mb-5" style="border: 2px solid #fd0000; padding: 10px; border-radius: 8px;">
+  <div class="col-md-6 text-center">
+    <img 
+      src="./picture5.png" 
+      style="width: 100%; max-width: 500px; height: auto;" 
+      class="rounded shadow" 
+      alt="picture1">
+  </div>
+  <div class="col-md-6">
+    <h5 class="text-dark fw-bold mb-3 text-center"></h5>
+    <p class="small text-muted" >
+        The average accuracy of our model is 95.35 percent.
+        We successfully distinguish between 4 different animal species in the tiger group.
+        The confusion matrix on the right shows how well the model predicted each class.
+        Most images of tiger and lion were correctly classified.
+        Some misclassifications occurred between cheetah and leopard due to visual similarity.
+        The F1-score chart provides a balanced view of precision and recall for each class.
+        The highest F1-score was achieved for the tiger class.
+        Lion and leopard classes also performed well, with F1-scores above 0.85.
+        The lowest F1-score appeared in the leopard class, slightly under 0.75.
+        The precision for cheetah classification was approximately 0.90.
+        Our model showed strong generalization ability across all 4 species.
+        The confusion matrix reveals that only a few images were misclassified.
+        The model tends to confuse leopard and cheetah the most.
+        We trained and tested the model on real-world data from diverse environments.
+        These results prove that our model is effective for animal species recognition in the wild.
+    </p>
+  </div>
+</div>
+</section>
+
+<section style="
+  position: relative;
+  margin: 40px auto;
+  padding: 60px 20px;
+  max-width: 100%;
+  color: #fff;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+  overflow: hidden;
+  border-radius: 0px;
+  margin-top: -30px;
+">
+  <!-- Ảnh nền -->
+  <div style="
+    background-image: url('https://monkeymedia.vcdn.com.vn/upload/web/storage_web/23-02-2022_15:28:26_giao-duc-tre-mam-non-0.jpg'); /* Ảnh động vật và trẻ em */
+    background-size: cover;
+    background-position: center;
+    filter: blur(3px) brightness(0.5);
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    z-index: 0;
+    border-radius: 0px;
+  "></div>
+
+  <!-- Nội dung chính -->
+  <div style="position: relative; z-index: 1;">
+    <h2 style="font-size: 32px; margin-bottom: 20px;">아이들에게 동물에 대해 교육하기 - Educating children about animals</h2>
+    <p style="font-size: 18px; max-width: 700px; margin: 0 auto;">
+      Chúng tôi tin rằng việc giáo dục trẻ em về thế giới động vật sẽ giúp xây dựng một thế hệ biết yêu thương, tôn trọng thiên nhiên và bảo vệ môi trường sống. 
+      Thông qua các hoạt động vui chơi và tương tác, trẻ sẽ hiểu hơn về sự đa dạng và quan trọng của các loài động vật trong hệ sinh thái.
+      <br>
+      We believe that educating children about the animal world will help build a generation that loves and respects nature and protects the environment. Through fun and interactive activities, children will better understand the diversity and importance of animals in the ecosystem.
+      <br>
+        아이들에게 동물 세계에 대해 가르치는 것이 자연을 사랑하고 존중하며 환경을 보호하는 세대를 만드는 데 도움이 된다고 믿습니다. 재미있고 상호작용적인 활동을 통해 아이들은 생태계에서 동물의 다양성과 중요성을 더 잘 이해하게 될 것입니다.
+    </p>
+  </div>
+</section>
+
+
+<!-- Footer nước mềm mại -->
+<footer style="
+  position: relative;
+  background-image: url('https://tse2.mm.bing.net/th/id/OIP.B5O2gdBnEp8a94yrmWRwuAHaEo?pid=Api&P=0&h=220');
+  background-size: cover;
+  background-repeat: repeat-y;
+  background-position: 0% 100%;
+  animation: waterFlow 20s linear infinite;
+  color: #fff;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  text-shadow: 1px 1px 2px #000;
+  overflow: hidden;
+">
+  <div style="position: relative; z-index: 1; font-size: 20px;">
+    <p>&copy; 2025 Green Jungle Team — Bridging hearts between people and nature. 🌿</p>
+    <p>&copy; 🌿 2025 그린 정글 팀 - 사람과 자연 사이의 마음을 이어주는 다리.</p>
+  </div>
+  <!-- Lớp mờ nước -->
+  <div style="
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    backdrop-filter: blur(2px);
+    background: rgba(0, 204, 255, 0.55);
+    z-index: 0;
+  "></div>
+</footer>
+
+<style>
+@keyframes waterFlow {
+  0%   { background-position: 0% 100%; }
+  50%  { background-position: 0% 0%; }
+  100% { background-position: 0% 100%; }
+}
+</style>
+</body>
+</html>
